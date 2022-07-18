@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head}}
+    <title>Login</title>
+</head>
+
+<body class="login">
+
+
+<main class="form-signin d-flex flex-column align-items-center justify-items-center">
+    <form action="login" method="post" style="height:50rem; width:40rem; margin:10rem 0">
+
+        <h1 class="h3 mb-3 text-center">Acceso al panel de control</h1>
+
+        <div class="form-floating" style="margin:1rem 0;">
+            <input type="email" class="form-control" id="username" placeholder="name@example.com" name="username">
+            <label for="username">Usuario</label>
+        </div>
+        <div class="form-floating" style="margin:1rem 0;">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
+            <label for="password">Contraseña</label>
+        </div>
+
+
+        <button class="w-100 btn btn-lg btn-info" type="submit" style="margin:1rem 0;">Entrar</button>
+    <footer class="d-flex flex-column">
+        <a href="/admin" class="my-2">IR A ADMIN (MODO DEV)</a>
+        <a href="/">👈🏽Volver a Inicio</a>
+    </footer>
+    </form>
+
+
+</main>
+
+
+
+</body>
+
+</html>

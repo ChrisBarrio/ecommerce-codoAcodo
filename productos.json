@@ -1,0 +1,45 @@
+[
+    {
+        "type": "header",
+        "version": "5.1.1",
+        "comment": "Export to JSON plugin for PHPMyAdmin"
+    },
+    {
+        "type": "database",
+        "name": "codo-a-codo-2022"
+    },
+    {
+        "type": "table",
+        "name": "productos",
+        "database": "codo-a-codo-2022",
+        "data": [
+            {
+                "id": "1",
+                "nombre": "producto 1",
+                "rutaImagen": "https:\/\/via.placeholder.com\/400x250",
+                "descripcion": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi alias in quod perferendis neque excepturi asperiores totam commodi sapiente laudantium esse.Fuga, natus sapiente?",
+                "caracteristicas": "i3, 128gb ssd, 4gb ram, pantalla de 14\".",
+                "precio": "199",
+                "stock": "10"
+            },
+            {
+                "id": "2",
+                "nombre": "producto 2",
+                "rutaImagen": "https:\/\/via.placeholder.com\/400x250",
+                "descripcion": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi alias in quod perferendis neque exce\r\n",
+                "caracteristicas": "\r\ni5, 128gb ssd, 8gb ram, pantalla de 16\".",
+                "precio": "300",
+                "stock": "5"
+            },
+            {
+                "id": "3",
+                "nombre": "producto 3",
+                "rutaImagen": "https:\/\/via.placeholder.com\/400x250",
+                "descripcion": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi alias in quod perferendis neque exce\r\n",
+                "caracteristicas": "\r\ni9, 256gb ssd, 20gb ram, pantalla de 14\".",
+                "precio": "300",
+                "stock": "5"
+            }
+        ]
+    }
+]

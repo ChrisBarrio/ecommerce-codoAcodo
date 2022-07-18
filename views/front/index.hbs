@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> head}}
+</head>
+<body>
+    <div class="container-fluid m-0 p-0">
+        {{> header}}
+        
+        {{> nav}}
+
+        <!-- productos -->
+        <section class="products section">
+        <div class="container my-5 text-center">
+            <h2 class="fs-1">Productos</h2>
+            <div class="row">
+                {{#if productos}}
+                {{#each productos}}
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <div class="product-thumb">
+                            <img class="img-fluid" src="{{rutaImagen}}"
+                                alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
+                            <div class="preview-meta">
+                                <span type="button" data-bs-toggle="modal" data-bs-target="#product-modal-{{id}}" class="text-primary my-4">
+                                    Ver mas +
+                                </span>
+                            </div>
+                        </div>
+                        <div class="product-content my-1">
+                            <div class="d-flex justify-content-center align-baseline-bottom">
+                                <h4>{{nombre}}<span class="text-secondary mx-2" style="font-size:1rem;">(disponibles {{stock}})</span></h4>
+                            </div>
+                            <p class="price" style="font-size:1.5rem ;">{{dolarApeso precio}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal product-modal fade my-5" id="product-modal-{{id}}" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="product-modal" aria-hidden="true">
+                    <button type="button" class="close float-lg-end mx-5 border-0" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-body" style="height:25rem ;">
+                                <div class="row d-flex justify-content-center mt-5">
+                                    <div class="col-md-8 col-sm-6 col-xs-12">
+                                        <div class="modal-image">
+                                            <img class="img-fluid" src="{{rutaImagen}}"
+                                                alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="product-short-details">
+                                            <h2 class="product-title">{{nombre}}</h2>
+                                            <p class="product-price">{{dolarApeso precio}}</p>
+                                            <div class="product-short-description">
+                                                {{!-- {{descripcion}} --}}
+                                                {{caracteristicas}}
+                                                {{!-- <ul>
+                                                    <li> i7 </li>
+                                                    <li> 11gen </li>
+                                                    <li> 256gb SSD </li>
+                                                    <li> 16 gb RAM </li>
+                                                </ul> --}}
+                                            </div>
+
+                                            <a href="/detalle-producto" class="btn btn-transparent d-block my-3 text-decoration-underline">Ver detalles
+                                                del producto</a>
+
+                                            <a href="mailto:"
+                                                class="btn btn-info mt-20">Comprar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                    <h2>No hay productos actualmente</h2>
+                {{/if}}
+            </div>
+        </div>
+        </section>
+        
+        {{> footer}}
+    </div>
+</body>
+</html>
