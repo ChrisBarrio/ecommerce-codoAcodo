@@ -11,8 +11,10 @@
         <div class="container my-5 text-center">
             <img src="https://st4.depositphotos.com/1432405/38405/v/450/depositphotos_384051568-stock-illustration-security-guard-computer-icon-isometric.jpg" alt="pagina no encontrada" style="width:20rem;">
             <p class="text-align fs-2">*** ERROR 404 ***</p>
-            <p class="h-2">Parece que esta pagina no exite</p>
-            <p class="">Parece que el enlace que apuntaba aqui no sirve. Quieres probar con una busqueda?</p>
+            <p>Pagina no encontrada</p>
+            {{#if mensaje}}
+                <p>{{mensaje}}</p>
+            {{/if}}
             <a href="/" class="btn btn-main text-bg-secondary"><i class="bi bi-box-arrow-in-left"></i>Volver al inicio</a>
         </div>
     </section>

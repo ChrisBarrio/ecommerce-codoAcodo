@@ -13,25 +13,25 @@
             <div class="container mt-5">
                 <div class="row">
                         <div class="col-md-5">
-                            <img src='{{data.rutaImagen}}' alt='{{data.nombre}}' class="img-fluid" />
+                            <img src='{{producto.rutaImagen}}' alt='{{producto.nombre}}' class="img-fluid" />
                         </div>
                         <div class="col-md-7">
                             <div class="single-product-details">
-                                <h2>{{data.nombre}}</h2>
-                                <p class="product-price">{{data.precio}}</p>
+                                <h2>{{producto.nombre}}</h2>
+                                <p class="product-price">{{dolarApeso producto.precio}}</p>
 
                                 <p class="mt-2">
-                                    Es una lenovo requete ... CARAA!
+                                    {{producto.descripcion}}
                                 </p>
-
-                                <ul>
+                                {{producto.caracteristica}}
+                                {{!-- <ul>
                                     <li> i7 </li>
                                     <li> 11gen </li>
                                     <li> 256gb SSD </li>
                                     <li> 16 gb RAM </li>
-                                </ul>
+                                </ul> --}}
 
-                                <a href="#" class="btn btn-info mt-20">Comprar</a>
+                                <a href="mailto:comprar@comprar.com?subject=interes en el producto {{producto.nombre}} ID:{{producto.id}}" class="btn btn-info mt-20">Comprar</a>
 
                             </div>
                         </div>

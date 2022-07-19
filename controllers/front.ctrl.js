@@ -65,8 +65,24 @@ const comoComprarGet = function(req, res) {
 }
 
 const detalleProductoGet_ID = function(req, res) {
-    console.log("ID -->", req.params.id) // params indica que despues del ID va un dato
+    let id = req.params.id
 
+    let sql = "SELECT * FROM productos WHERE id = ?"
+    db.query(sql, id, function (err, data) {
+        console.log("DATA -->", data)
+        if(err) res.send(`Ocurrio un error ${err.code}`)
+
+        if(data == '') {
+            res.status(404).render("404", {
+                titulo:"404 - Pagina no encontrada",
+                mensaje:`Producto con ID ${id} no existe`
+            })
+        } else {
+            res.render('detalle-producto', {
+                producto: data[0]
+            })
+        }
+    })
 
     res.render('detalle-producto')
 }
