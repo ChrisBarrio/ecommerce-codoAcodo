@@ -7,8 +7,6 @@
     <div class="container-fluid m-0 p-0">
         {{> header}}
         
-        {{> nav}}
-
         <!-- productos -->
         <section class="products section">
         <div class="container my-5 text-center">
@@ -17,7 +15,7 @@
                 {{#if productos}}
                 {{#each productos}}
                 <div class="col-md-4">
-                    <div class="product-item">
+                    <div class="product-item shadow p-3 mb-5 bg-white rounded">
                         <div class="product-thumb">
                             <img class="img-fluid" src="{{rutaImagen}}"
                                 alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
@@ -44,8 +42,8 @@
                     </button>
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
-                            <div class="modal-body" style="height:25rem ;">
-                                <div class="row d-flex justify-content-center mt-5">
+                            <div class="modal-body">
+                                <div class="row d-flex justify-content-center my-5">
                                     <div class="col-md-8 col-sm-6 col-xs-12">
                                         <div class="modal-image">
                                             <img class="img-fluid" src="{{rutaImagen}}"

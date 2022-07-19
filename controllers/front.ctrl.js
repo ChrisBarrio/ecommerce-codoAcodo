@@ -69,7 +69,7 @@ const detalleProductoGet_ID = function(req, res) {
 
     let sql = "SELECT * FROM productos WHERE id = ?"
     db.query(sql, id, function (err, data) {
-        console.log("DATA -->", data)
+        // console.log("DATA -->", data)
         if(err) res.send(`Ocurrio un error ${err.code}`)
 
         if(data == '') {
@@ -84,7 +84,7 @@ const detalleProductoGet_ID = function(req, res) {
         }
     })
 
-    res.render('detalle-producto')
+    // res.render('detalle-producto') << esta linea daba error porque en linea 81 ya se estaba renderizando
 }
 
 const  quienesSomosGet = function(req, res) {
