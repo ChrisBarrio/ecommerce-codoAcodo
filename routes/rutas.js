@@ -33,15 +33,22 @@ router.get('/quienes-somos', quienesSomosGet)
 const {
     adminGet,
     agregarProductoGet,
+    agregarProductoPost,
     editarProductoGet,
-    loginGet
+    editarProductoPost,
+    borrarGet,
+    loginGet,
 } = require('../controllers/back.ctrl')
 
 router.get('/admin', adminGet )
 
 router.get('/agregar-producto', agregarProductoGet )
+router.post('/agregar-producto-post', agregarProductoPost )
 
-router.get('/editar-producto', editarProductoGet)
+router.get('/editar-producto/:id', editarProductoGet)
+router.post('/editar-producto/:id', editarProductoPost)
+
+router.get('/borrar-producto/:id', borrarGet)
 
 router.get('/login', loginGet)
 
