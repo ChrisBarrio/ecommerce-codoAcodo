@@ -10,7 +10,7 @@
         <!-- productos -->
         <section class="products section">
         <div class="container my-5 text-center">
-            <h2 class="fs-1">Productos</h2>
+            <h2 class="fs-1 my-4">Productos</h2>
             <div class="row">
                 {{#if productos}}
                 {{#each productos}}
@@ -19,9 +19,9 @@
                         <div class="product-thumb">
                             <img class="img-fluid" src="{{rutaImagen}}"
                                 alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
-                            <div class="preview-meta">
-                                <span type="button" data-bs-toggle="modal" data-bs-target="#product-modal-{{id}}" class="text-primary my-4">
-                                    Ver mas +
+                            <div class="preview-meta my-3">
+                                <span type="button" data-bs-toggle="modal" data-bs-target="#product-modal-{{id}}" class="text-primary">
+                                    Ver mas <i class="fa-solid fa-circle-plus"></i>
                                 </span>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                 <!-- Modal -->
                 <div class="modal product-modal fade my-5" id="product-modal-{{id}}" data-bs-backdrop="static"
                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="product-modal" aria-hidden="true">
-                    <button type="button" class="close float-lg-end mx-5 border-0" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="close float-end mt-2" data-bs-dismiss="modal" aria-label="Close" style="color:#fff;background-color:transparent; margin-right:6rem;border:none;">
+                        <i class="fa-regular fa-circle-xmark fa-2xl"></i>
                     </button>
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
@@ -53,8 +53,8 @@
                                     <div class="col-md-4 col-sm-6 col-xs-12">
                                         <div class="product-short-details">
                                             <h2 class="product-title">{{nombre}}</h2>
-                                            <p class="product-price">{{dolarApeso precio}}</p>
-                                            <div class="product-short-description">
+                                            <b class="product-price">{{dolarApeso precio}}</b>
+                                            <div class="product-short-description mt-3">
                                                 {{!-- {{descripcion}} --}}
                                                 {{caracteristicas}}
                                                 {{!-- <ul>
@@ -68,8 +68,7 @@
                                             <a href="/detalle-producto/{{id}}" class="btn btn-transparent d-block my-3 text-decoration-underline">Ver detalles
                                                 del producto</a>
 
-                                            <a href="mailto:"
-                                                class="btn btn-info mt-20">Comprar</a>
+                                            <a href="mailto:" class="btn btn-info">Comprar</a>
                                         </div>
                                     </div>
                                 </div>

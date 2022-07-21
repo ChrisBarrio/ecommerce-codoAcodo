@@ -1,6 +1,5 @@
 let db = require('../db')
 
-
 const adminGet = function(req, res) {
 
     let sql = "SELECT * FROM productos"
@@ -31,7 +30,7 @@ const agregarProductoPost = function(req, res) {
         
         res.render('agregar-producto', {
             titulo:"Agregar producto",
-            mensaje:"Producto agregado correctamente",
+            mensaje:"Producto agregado correctamente ✅",
         })
     })
 }
@@ -65,7 +64,7 @@ const editarProductoPost = function(req, res) {
     let sql = "UPDATE productos SET ? WHERE id = ?"
     db.query(sql, [detalleProducto, id], function(err, data){
         if (err) res.send(`Ocurrio un error ${err.code}`)
-        console.log(data.affectedRows + " registro actualizado")
+        console.log(data.affectedRows + " registro actualizado correctamente")
     })
 
     res.redirect("/admin"
@@ -79,7 +78,7 @@ const borrarGet = function(req, res) {
     let sql = "DELETE FROM productos WHERE id = ?"
     db.query(sql, id, function(err, data){
         if (err) res.send(`Ocurrio un error ${err.code}`)
-        console.log(data.affectedRows + " registro borrado")
+        console.log(data.affectedRows + " registro borrado correctamente")
     })
 
     res.redirect("/admin"
@@ -91,6 +90,27 @@ const loginGet = function(req, res) {
     res.render('login')
 }
 
+const loginPost = function(req, res) {
+    
+    let usuario = req.body.username
+    let clave = req.body.password
+
+    let sql = "SELECT * FROM cuentas WHERE email = ? AND clave = ?"
+    db.query(sql, [usuario, clave], function(err, data) {
+        console.log("DATA", data)
+        if (data.length > 0) {
+            // ok
+            res.redirect('/admin')
+        } else {
+            //error
+            res.render('login', {
+                titulo: "Login",
+                error:"Nombre de usuario o contrasena incorrecto"
+            })
+        }
+    })
+}
+
 module.exports = {
     adminGet,
     agregarProductoGet,
@@ -98,5 +118,6 @@ module.exports = {
     editarProductoGet,
     editarProductoPost,
     borrarGet,
-    loginGet
+    loginGet,
+    loginPost
 }

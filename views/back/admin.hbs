@@ -56,9 +56,11 @@
                         </td>
                         <td>{{dolarApeso precio}}</td>
                         <td>{{stock}}</td>
-                        <td>
-                            <a href="/editar-producto/{{id}}">Editar</a><br>
-                            <a href="/borrar-producto/{{id}}">Borrar</a>
+                        <td class="text-center pt-4">
+                            <a href="/editar-producto/{{id}}" class='my-5' style="color:rgb(0, 102, 255); padding:3px; border-radius:2px;"><i class="fa-solid fa-pen-to-square fa-lg" title="Editar"></i></a><br>
+                            <br>
+                            <a href="/borrar-producto/{{id}}" onclick="return confirm('Esta seguro que quiere eliminar?');" style="color:rgba(255, 0, 0, 0.599); padding:3px; border-radius:2px;" title="Eliminar"><i class="fa-regular fa-trash-can fa-lg"></i></a>
+                            {{!-- <a onclick="confirmar(id)" class="btn btn-outline-danger">Borrar</a> --}}
                         </td>
                     </tr>
                     {{/each}}
@@ -78,6 +80,26 @@
 
     {{> footer}}
 
+
+
+<script>
+
+    {{!-- sweetalert2 --}}
+    {{!-- function confirmar(id) {
+        Swal.fire({
+            title: 'Confirma eliminar el producto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '/borrar-producto/'+id;
+            }
+        })
+    } --}}
+</script>
 </body>
 
 </html>

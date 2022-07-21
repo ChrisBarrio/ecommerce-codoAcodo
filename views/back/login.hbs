@@ -8,9 +8,13 @@
 
 <body class="login">
 
-
-<main class="form-signin d-flex flex-column align-items-center justify-items-center">
-    <form action="login" method="post" style="height:50rem; width:40rem; margin:10rem 0">
+{{#if error}}
+    <div class="alert alert-danger text-center" role="alert">
+        {{error}}
+    </div>
+{{/if}}
+<main class="form-signin d-flex flex-column align-items-center">
+    <form action="login" method="post" class="mt-5">
 
         <h1 class="h3 mb-3 text-center">Acceso al panel de control</h1>
 
@@ -27,7 +31,7 @@
         <button class="w-100 btn btn-lg btn-info" type="submit" style="margin:1rem 0;">Entrar</button>
     <footer class="d-flex flex-column">
         <a href="/admin" class="my-2">IR A ADMIN (MODO DEV)</a>
-        <a href="/">👈🏽Volver a Inicio</a>
+        <a href="/"> < Volver a Inicio</a>
     </footer>
     </form>
 

@@ -38,6 +38,7 @@ const {
     editarProductoPost,
     borrarGet,
     loginGet,
+    loginPost,
 } = require('../controllers/back.ctrl')
 
 router.get('/admin', adminGet )
@@ -51,6 +52,7 @@ router.post('/editar-producto/:id', editarProductoPost)
 router.get('/borrar-producto/:id', borrarGet)
 
 router.get('/login', loginGet)
+router.post('/login', loginPost)
 
 //exportamos router
 module.exports = router;
