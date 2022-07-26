@@ -7,6 +7,7 @@
     <div class="container-fluid m-0 p-0">
         {{> header}}
         
+        {{> home}}
         <!-- productos -->
         <section class="products section">
         <div class="container my-5 text-center">
@@ -17,7 +18,7 @@
                 <div class="col-md-4">
                     <div class="product-item shadow p-3 mb-5 bg-white rounded">
                         <div class="product-thumb">
-                            <img class="img-fluid" src="{{rutaImagen}}"
+                            <img class="img-fluid" src="/uploads/{{rutaImagen}}"
                                 alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
                             <div class="preview-meta my-3">
                                 <span type="button" data-bs-toggle="modal" data-bs-target="#product-modal-{{id}}" class="text-primary">
@@ -43,26 +44,21 @@
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <div class="row d-flex justify-content-center my-5">
-                                    <div class="col-md-8 col-sm-6 col-xs-12">
+                                <div class="row d-flex my-5">
+                                    <div class="col-md-5 col-sm-6 col-xs-10">
                                         <div class="modal-image">
-                                            <img class="img-fluid" src="{{rutaImagen}}"
+                                            <img class="img-fluid" src="/uploads/{{rutaImagen}}"
                                                 alt="product-img" style="width:400px; height:250px;object-fit: contain;"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-xs-12">
-                                        <div class="product-short-details">
-                                            <h2 class="product-title">{{nombre}}</h2>
+                                    <div class="col-md-7 col-sm-6 col-xs-2">
+                                        <div class="product-short-details text-start">
+                                            <h2 class="product-title my-3">{{nombre}}</h2>
                                             <b class="product-price">{{dolarApeso precio}}</b>
                                             <div class="product-short-description mt-3">
-                                                {{!-- {{descripcion}} --}}
-                                                {{caracteristicas}}
-                                                {{!-- <ul>
-                                                    <li> i7 </li>
-                                                    <li> 11gen </li>
-                                                    <li> 256gb SSD </li>
-                                                    <li> 16 gb RAM </li>
-                                                </ul> --}}
+                                                {{#listado caracteristicas}}
+                                                    {{this}}
+                                                {{/listado}}
                                             </div>
 
                                             <a href="/detalle-producto/{{id}}" class="btn btn-transparent d-block my-3 text-decoration-underline">Ver detalles
@@ -88,4 +84,5 @@
         {{> footer}}
     </div>
 </body>
+
 </html>

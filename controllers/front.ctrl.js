@@ -3,15 +3,20 @@ let nodemailer = require('nodemailer')
 let db = require('../db')
 
 const inicioGet = function (req, res) {
-    // res.render('index', {
-    //     productos:datos[2].data
-    // })
+    
+    // console.log('antes',req.session.contador)
+    // req.session.contador = req.session.contador ? req.session.contador + 1 : 1;
+    // console.log('despues',req.session.contador)
+    
+    // res.send()
     let sql = 'SELECT * FROM productos'
     db.query(sql, function(error, data) {
         if (error) res.send(`Ocurrio un error ${error.code}`)
         // console.log(data)
         res.render('index', {
             titulo:"Mi emprendimiento",
+            logueado:req.session.logueado,
+            usuario:req.session.usuario,
             productos: data
         })
     })
@@ -20,7 +25,11 @@ const inicioGet = function (req, res) {
 }
 
 const contactoGet = function(req, res) {
-    res.render('contacto')
+    res.render('contacto', {
+        titulo:'Contacto',
+        logueado:req.session.logueado,
+        usuario:req.session.usuario,
+    })
 }
 
 const contactoPost = function(req, res) {
@@ -61,7 +70,11 @@ const contactoPost = function(req, res) {
 }
 
 const comoComprarGet = function(req, res) {
-    res.render('como-comprar')
+    res.render('como-comprar',{
+        titulo:'Como comprar',
+        logueado:req.session.logueado,
+        usuario:req.session.usuario,
+    })
 }
 
 const detalleProductoGet_ID = function(req, res) {
@@ -79,7 +92,10 @@ const detalleProductoGet_ID = function(req, res) {
             })
         } else {
             res.render('detalle-producto', {
-                producto: data[0]
+                titulo:`Detalle del producto ${data[0].nombre}`,
+                producto: data[0],
+                logueado:req.session.logueado,
+                usuario:req.session.usuario,
             })
         }
     })
@@ -88,7 +104,11 @@ const detalleProductoGet_ID = function(req, res) {
 }
 
 const  quienesSomosGet = function(req, res) {
-    res.render('quienes-somos')
+    res.render('quienes-somos',{
+        titulo: 'Quienes somos',
+        logueado:req.session.logueado,
+        usuario:req.session.usuario,
+    })
 }
 
 module.exports = {

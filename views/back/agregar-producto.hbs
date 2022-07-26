@@ -6,18 +6,18 @@
 </head>
 
 <body id="backend">
-    <h1 class="text-center my-3">Agregar producto</h1>
-    <div class="container mb-4" style="height:100vh ;">
-        
         {{>header}}
+    <div class="container mb-4" style="margin-top:8rem; height:100vh">
+    
+        <h1 class="text-center my-3">Agregar producto</h1>
 
-        <div class="agregar-producto mt-4">
-        {{#if mensaje}}
-            <div class="alert alert-success text-center" role="alert">
+        <div class="agregar-producto" style="margin:5rem 0;">
+            {{#if mensaje}}
+            <div class="alert alert-{{clase}} text-center" role="alert">
                 {{mensaje}}
             </div>
             {{/if}}
-            <form action="/agregar-producto-post" method="post">
+            <form action="/agregar-producto-post" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4">
                         
@@ -37,16 +37,28 @@
                         </div>
 
 
-                        <div class="col-12 mb-3" id="">
+                        <div class="col-12 mb-3" id="subirImagen">
                             <div>
-                                <div class="col-6">
-                                    <label for="imagenDeProducto" class="form-label">URL imagen</label>
-                                    <input type="text" name="rutaImagen">
-                                </div>
                                 <div class="col-6">
                                     <label for="stock">Stock</label>
                                     <input type="number" name="stock" id="stock">
                                 </div>
+                                <div class="mb-3 col-12" id="subirImagen">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="rutaImagen" class="form-label btn btn-primary w-100">Subir
+                                                imagen</label>
+                                            <div class="preview">
+                                                <p>No hay imagen seleccionada para subir</p>
+                                            </div>
+                                            <input class="form-control" type="file" id="rutaImagen" name="rutaImagen" accept=".png,.jpg,.jpeg" required="" style="opacity: 0;">
+                                        </div>
+                                    </div>
+                                </div>
+                                {{!-- <div class="col-6">
+                                    <label for="imagenDeProducto" class="form-label">URL imagen</label>
+                                    <input type="text" name="rutaImagen">
+                                </div> --}}
                             </div>
                         </div>
 
@@ -79,7 +91,7 @@
         </div>
     </div>
 
-    {{> footer}}
+{{> footer}}
 
 
     <script>

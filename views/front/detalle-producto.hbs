@@ -4,35 +4,34 @@
     {{> head}}
 </head>
 <body>
-    <div class="container-fluid m-0 p-0">
-        {{> header}}
+    {{> header}}
+    
+    <div class="container-fluid m-0 p-0" >
         {{!-- Tomara un OBJETO --}}
-        <section class="single-product"  style="height:100vh;">
+        <section class="single-product"  style="margin:8rem 0;">
             <div class="container mt-5">
                 <div class="row">
                         <div class="col-md-5">
-                            <img src='{{producto.rutaImagen}}' alt='{{producto.nombre}}' class="img-fluid" />
+                            <img src='/uploads/{{producto.rutaImagen}}' alt='{{producto.nombre}}' class="img-fluid" />
                         </div>
                         <div class="col-md-7">
                             <div class="single-product-details">
                                 <h2 class="my-3">{{producto.nombre}}</h2>
                                 <b class="product-price">{{dolarApeso producto.precio}}</b>
 
-                                <p class="my-3">
+                                <p class="my-3 text-secondary">
                                     {{producto.descripcion}}
                                 </p>
-                                <p class="my-3">
-                                    {{producto.caracteristicas}}
+
+                                <p class="my-3 text-secondary">
+                                    <p class="text-decoration-underline h6">Caracteristicas:</p>
+                                    {{#listado producto.caracteristicas}}
+                                        {{this}}
+                                    {{/listado}}
                                 </p>
-                                {{!-- <ul>
-                                    <li> i7 </li>
-                                    <li> 11gen </li>
-                                    <li> 256gb SSD </li>
-                                    <li> 16 gb RAM </li>
-                                </ul> --}}
 
-                                <a href="mailto:comprar@comprar.com?subject=interes en el producto {{producto.nombre}} ID:{{producto.id}}" class="btn btn-info mt-20">Comprar</a>
-
+                                <a href="mailto:comprar@comprar.com?subject=interes en el producto {{producto.nombre}} ID:{{producto.id}}" class="btn btn-info mt-4">Comprar</a>
+                                
                             </div>
                         </div>
                 </div>

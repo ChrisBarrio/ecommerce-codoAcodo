@@ -6,77 +6,78 @@
 </head>
 
 <body>
-    <div class="container-fluid m-0 p-0">
     {{> header}}
-    <section class="d-flex justify-content-center align-content-center my-5" style="height: 100%;">
-        <h1 class="page-name text-info m-0 p-0">Contacto</h1>
-    </section>
-    <section class="page-wrapper my-5">
-        <div class="contact-section">
-            <div class="container">
-                {{#if mensaje}}
+    
+    <div class="container-fluid p-0 m-0" >
+        
+        
+        <section class="page-wrapper" style="margin:8rem 0;">
+            <h1 class="text-center">Contactanos</h1>
+            <div class="contact-section">
+                <div class="container">
+                    {{#if mensaje}}
 
-                {{mensaje}}
+                    {{mensaje}}
 
-                {{/if}}
+                    {{/if}}
 
-                <div class="row">
-                    <!-- Contact Form -->
-                    <form action="/contacto" method="post" class="row mb-3 g-3 needs-validation col-md-6 mx-auto"
-                        id="contact-form" novalidate>
-                        <div class="col-md-4">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" pattern="[A-Za-z]{1,20}" name="nombre" required>
-                            <div class="invalid-feedback">
-                                Escribe correctamente tu nombre
+                    <div class="row">
+                        <!-- Contact Form -->
+                        <form action="/contacto" method="post" class="row mb-3 g-3 needs-validation col-md-6 mx-auto"
+                            id="contact-form" novalidate>
+                            <div class="col-md-4">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Escribe tu nombre" pattern="[A-Za-z]{1,20}" name="nombre" required>
+                                <div class="invalid-feedback">
+                                    Escribe correctamente tu nombre
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" name="email" id="email"
-                                placeholder="Ej: email@mail.com" required>
-                            <div class="invalid-feedback">
-                                Escribe correctamente tu e-mail
+                            <div class="col-md-4">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Ej: email@mail.com" required>
+                                <div class="invalid-feedback">
+                                    Escribe correctamente tu e-mail
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="col-md-4">
-                            <label for="asunto" class="form-label">Asunto</label>
-                            <select class="form-select" name="asunto" id="asunto" required>
-                                <option selected disabled value="">Elegir...</option>
-                                <option>Comprar producto</option>
-                                <option>Otras consultas</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Por favor elegir un asunto
+                            <div class="col-md-4">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <select class="form-select" name="asunto" id="asunto" required>
+                                    <option selected disabled value="">Elegir...</option>
+                                    <option>Comprar producto</option>
+                                    <option>Otras consultas</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor elegir un asunto
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label for="mensaje" class="form-label">Textarea</label>
-                            <textarea class="form-control" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje..."
-                                minlength="5" required></textarea>
-                            <div class="invalid-feedback">
-                                Por favor escribir un mensaje del menos 5 caracteres
+                            <div class="col-12 mb-3">
+                                <label for="mensaje" class="form-label">Textarea</label>
+                                <textarea class="form-control" name="mensaje" id="mensaje" rows="5" placeholder="Mensaje..."
+                                    minlength="5" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor escribir un mensaje del menos 5 caracteres
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Contactar</button>
-                        </div>
-                    </form>
-                    <!-- ./End Contact Form -->
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Contactar</button>
+                            </div>
+                        </form>
+                        <!-- ./End Contact Form -->
 
-                </div> <!-- end row -->
-            </div> <!-- end container -->
-        </div>
-    </section>
-
-    {{> footer}}
-
+                    </div> <!-- end row -->
+                </div> <!-- end container -->
+            </div>
+        </section>
 
     </div>
+    
+    {{> footer}}
+    
     <script>
 
         // Validación

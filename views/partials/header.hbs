@@ -1,31 +1,56 @@
-<header>
-    <nav class="navbar navbar-expand-xxl navbar-dark bg-dark w-100 p-3">
-        <a class="navbar-brand mx-3" href="/">Logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<header class="fixed-top">
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid ">
+        <a class="navbar-brand text-white" href="/">Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-3">
-                <li class="my-2 nav-item active">
-                    <a class="nav-link" href="/">Inicio</a>
+
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+            <ul class="navbar-ul navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" aria-current="page" href="/">Inicio</a>
                 </li>
-                <li class="my-2 nav-item">
-                    <a class="nav-link" href="/como-comprar">Como comprar</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/como-comprar">Como comprar</a>
                 </li>
-                <li class="my-2 nav-item">
-                    <a class="nav-link" href="/quienes-somos">Nosotros</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/quienes-somos">Nosotros</a>
                 </li>
-                <li class="my-2 nav-item">
-                    <a class="nav-link" href="/contacto">Contacto</a>
-                </li>
-                <li class="my-2 nav-item">
-                    <a href="/login" type="button" class="btn btn-primary">Login</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/contacto">Contacto</a>
                 </li>
             </ul>
+            
+            <div>
+                <li class="my-2 nav-item" style="list-style:none;">
+                    {{#if logueado}}
+                    <a href="/logout" class="my-auto">Loguot: {{usuario}}</a><span class="text-secondary mx-2">|</span><a href="/admin" class="my-auto">ADMIN</a>
+                    {{else}}
+                    <a href="/login" type="button" class="btn btn-primary">Login</a>
+                    {{/if}}
+                </li>
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 </header>
+<style>
+    .navbar-ul{
+        margin: 0 1rem;
+    }
+    .navbar-ul li{
+        margin: 0 1rem;
+    }
+    .nav-link{
+        transition: all .8s;
+    }
+    .nav-link:hover{
+        transform: scale(1.1);
+    }
+</style>
 
 <script src="https://kit.fontawesome.com/e45e7aaa63.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
