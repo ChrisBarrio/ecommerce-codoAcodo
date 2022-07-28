@@ -1,21 +1,21 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-    host     : 'bfuqtwgapmi7t9kzcub1-mysql.services.clever-cloud.com',
-    user     : 'ugk3glycvxd0vv86',
-    password : 'IYuwrWGzhewpaYzgp48L',
-    database : 'bfuqtwgapmi7t9kzcub1'
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE,
 });
 
-connection.connect(function (error) {
-    if(error) throw error
-    console.log("DB online")
+connection.connect(function (err) {
+    if(err) throw err
+    console.log("La DB esta online ✅")
 });
 
-// connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-//     if (error) throw error;
-//     console.log('The solution is: ', results[0].solution);
-// });
+setInterval(function () {
+    connection.query('SELECT 1');
+    console.log("manteniendo viva la conexion")
+}, 50000);
 
-// connection.end();
+
 
 module.exports = connection

@@ -32,7 +32,7 @@
                             <div class="mb-3 col-12 col-md-6">
                                 <label for="precio" class="form-label">Precio (u$s)</label>
                                 <input type="text" class="form-control" id="precio" placeholder="$ Precio en dólares"
-                                    name="precio"  required>
+                                    name="precio" pattern="^[0-9]*$" required>
                             </div>
                         </div>
 
@@ -40,13 +40,13 @@
                         <div class="col-12 mb-3" id="subirImagen">
                             <div>
                                 <div class="col-6">
-                                    <label for="stock">Stock</label>
-                                    <input type="number" name="stock" id="stock">
+                                    <label for="stock" class="form-label">Stock</label>
+                                    <input type="number" class="form-control" name="stock" pattern="^[0-9]*$" id="stock">
                                 </div>
                                 <div class="mb-3 col-12" id="subirImagen">
                                     <div class="row">
                                         <div class="col">
-                                            <label for="rutaImagen" class="form-label btn btn-primary w-100">Subir
+                                            <label for="rutaImagen" class="form-label btn btn-primary w-100 mt-2">Subir
                                                 imagen</label>
                                             <div class="preview">
                                                 <p>No hay imagen seleccionada para subir</p>
@@ -55,10 +55,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{!-- <div class="col-6">
-                                    <label for="imagenDeProducto" class="form-label">URL imagen</label>
-                                    <input type="text" name="rutaImagen">
-                                </div> --}}
                             </div>
                         </div>
 
@@ -95,7 +91,7 @@
 
 
     <script>
-        const imagenDeProducto = document.querySelector('#imagenDeProducto');
+        const imagenDeProducto = document.querySelector('#rutaImagen');
         const preview = document.querySelector('.preview');
 
         imagenDeProducto.style.opacity = 0;
@@ -121,9 +117,12 @@
                 for (const file of curFiles) {
                     const listItem = document.createElement('li');
                     const para = document.createElement('p');
-                    para.textContent = `Archivo ${file.name}, tamaño ${returnFileSize(file.size)}.`;
+                    para.textContent = `Archivo ${file.name} Tamaño del archivo: ${returnFileSize(file.size)}.`;
+                    //previsualizacion de imagen con su detalle
                     const image = document.createElement('img');
                     image.src = URL.createObjectURL(file);
+                    image.style.width = '15rem';
+                    listItem.style.listStyleType = 'none';
 
                     listItem.appendChild(image);
                     listItem.appendChild(para);

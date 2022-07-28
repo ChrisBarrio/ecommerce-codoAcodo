@@ -10,8 +10,8 @@ const inicioGet = function (req, res) {
     
     // res.send()
     let sql = 'SELECT * FROM productos'
-    db.query(sql, function(error, data) {
-        if (error) res.send(`Ocurrio un error ${error.code}`)
+    db.query(sql, function(err, data) {
+        if (err) throw err;
         // console.log(data)
         res.render('index', {
             titulo:"Mi emprendimiento",
@@ -46,7 +46,7 @@ const contactoPost = function(req, res) {
     let data = req.body
     let mailOptions = {
         from: data.nombre,
-        to: 'chbwdeveloper@gmail.com',
+        to: process.env.EMAIL_USER,
         subject: data.asunto,
         text:data.mensaje
     }

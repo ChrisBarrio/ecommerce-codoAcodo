@@ -1,27 +1,28 @@
 const express = require('express')
 const session = require('express-session')
-// var MySQLStore = require('express-mysql-session')(session);
+var MySQLStore = require('express-mysql-session')(session);
+const dotenv = require('dotenv').config()
 const app = express()
-var colors = require('colors')
 const hbs = require('hbs')
 var path = require('path')
 require('./helpers/helpers')
+var colors = require('colors')
 
 
 let opciones = {
-    host     : 'bfuqtwgapmi7t9kzcub1-mysql.services.clever-cloud.com',
-    user     : 'ugk3glycvxd0vv86',
-    password : 'IYuwrWGzhewpaYzgp48L',
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE,
     port: 3306,
-    database : 'bfuqtwgapmi7t9kzcub1'
 }
 
-// let sessionStore = new MySQLStore(opciones)
+let sessionStore = new MySQLStore(opciones)
 
 app.use(session({
-    // key:'cookie_22007',
-    secret:'secretito',
-    // store:sessionStore,
+    key:'cookie_22007',
+    secret:process.env.SESSION_SECRET,
+    store:sessionStore,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge:300000 } // 5 minutos
